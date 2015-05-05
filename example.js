@@ -29,6 +29,9 @@ var DemoVoltronSelect = React.createClass({
 			 options: growsOnOptions}
 		];
 	},
+	onChange: function(values){
+		console.log(values);
+	},
 	render: function() {
 		return (
 			<VoltronSelect 
@@ -40,4 +43,4 @@ var DemoVoltronSelect = React.createClass({
 	}
 });
 
-React.render(React.createElement(ReactVoltronSelect), document.getElementById('main'));
+React.render(React.createElement(DemoVoltronSelect), document.getElementById('main'));

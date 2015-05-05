@@ -42,8 +42,31 @@ module.exports = React.createClass({
   	}.bind(this));
   },
   dimensionFilterIncludes: function(opt) {
-  	// TODO: implement me
-  	return true;
+  	
+  	if (Object.keys(this.state.dimensionFilter).length < 1){
+  		return true;
+  	}
+
+  	var retVal = true;
+  	var filterHits = this.props.filterDimensions.map(function(dimension){
+  		var key = dimension.key;
+  		var name = dimension.name;
+  		var filterVals = this.state.dimensionFilter[name];
+  		if (filterVals === undefined || filterVals.length < 1) {
+  			return true;
+  		}
+  		var index = filterVals.indexOf(opt[key]);
+  		if (index > -1) {
+  			return true;
+  		}
+  		return false;
+  	}.bind(this));
+  	filterHits.forEach(function(fh){
+  		if (!fh){
+  			retVal = false;
+  		}
+  	});
+  	return retVal;
   },
   updateLabelFilter: function(event) {
   	// TODO: add throttling
@@ -60,6 +83,14 @@ module.exports = React.createClass({
   		this.setState({dimensionFilter: newState});
   	}.bind(this);
   },
+  tagListValues: function() {
+    // SLOW!! too slow??
+   	return this.state.values.map(function(val){
+   		return this.props.options.filter(function(opt){
+   			return opt.value === val;
+   		})[0];
+  	}.bind(this));
+  },
   render: function() {
   	var selectFilters = this.props.filterDimensions.map(function(dim){
   		return (<CompactMultiselect 
@@ -69,9 +100,10 @@ module.exports = React.createClass({
   					onChange={this.generateUpdateDimensionFilter(dim.name)} />);
   	}.bind(this));
     return <div className="react-voltron-select">
-    			<ReactTagList 
-    				values={this.state.values} 
+    			<TagList 
+    				values={this.tagListValues()} 
     				onRemove={this.removeValue} />
+    			{selectFilters}
     			<input 
     				className="rvs-label-filter" 
     				onChange={this.updateLabelFilter} 
