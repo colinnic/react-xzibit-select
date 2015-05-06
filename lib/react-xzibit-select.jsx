@@ -38,7 +38,7 @@ module.exports = React.createClass({
   filteredOptions: function() {
   	return this.props.options.filter(function(opt){
   		return (this.state.values.indexOf(opt.value) < 0) 
-  			&& (opt.label.indexOf(this.state.labelFilter) > -1)
+  			&& (opt.label.toLowerCase().indexOf(this.state.labelFilter.toLowerCase()) > -1)
   			&& (this.dimensionFilterIncludes(opt));
   	}.bind(this));
   },
