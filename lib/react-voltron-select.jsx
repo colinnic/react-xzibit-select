@@ -4,7 +4,7 @@ var OptionList = require("./components/option-list.jsx");
 var CompactMultiselect = require("react-compact-multiselect");
 var TagList = require("react-tag-list");
 
-require("./react-voltron-select.scss");
+require("./react-xzibit-select.scss");
 
 module.exports = React.createClass({
   getInitialState: function() {
@@ -99,7 +99,7 @@ module.exports = React.createClass({
   					initialValue={[]} 
   					onChange={this.generateUpdateDimensionFilter(dim.name)} />);
   	}.bind(this));
-    return <div className="react-voltron-select">
+    return <div className="react-xzibit-select">
     			<TagList 
     				values={this.tagListValues()} 
     				onRemove={this.removeValue} />

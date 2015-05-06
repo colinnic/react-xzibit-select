@@ -1,23 +1,8 @@
-# react-voltron-select
+# react-xzibit-select
 
-Get the AMD module located at `react-voltron-select.js` and include it in your project.
+When your selection needs demand a filterable select that is filtered by other filterable selects, you need react-xzibit-select.
 
-Here is a sample integration:
-
-```js
-require.config({
-  paths: {
-    'react': 'vendor/bower_components/react/react',
-    'ReactVoltronSelect': 'react-voltron-select'
-  }
-});
-
-require(['react', 'ReactVoltronSelect'], function(React, ReactVoltronSelect) {
-
-  React.render(React.createElement(ReactVoltronSelect), document.getElementById('widget-container'));
-
-});
-```
+![](xzibit-select.png)
 
 ## Development
 

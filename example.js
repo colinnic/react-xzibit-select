@@ -1,10 +1,10 @@
 var React = require('react/addons');
-var VoltronSelect = require('./lib/react-voltron-select.jsx');
+var XzibitSelect = require('./lib/react-xzibit-select.jsx');
 var testData = require("./lib/test-data");
 var _ = require("lodash");
 
 
-var DemoVoltronSelect = React.createClass({
+var DemoXzibitSelect = React.createClass({
 	options: function() {
 		return testData.fruits;
 	},
@@ -34,7 +34,7 @@ var DemoVoltronSelect = React.createClass({
 	},
 	render: function() {
 		return (
-			<VoltronSelect 
+			<XzibitSelect 
 				options={this.options()} 
 				initialValue={[]} 
 				onChange={this.onChange} 
@@ -43,4 +43,4 @@ var DemoVoltronSelect = React.createClass({
 	}
 });
 
-React.render(React.createElement(DemoVoltronSelect), document.getElementById('main'));
+React.render(React.createElement(DemoXzibitSelect), document.getElementById('main'));

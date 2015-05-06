@@ -1,18 +1,18 @@
 var React = require('react');
 var TestUtils = React.addons.TestUtils;
-var ReactVoltronSelect = require('../lib/react-voltron-select.jsx');
+var ReactXzibitSelect = require('../lib/react-xzibit-select.jsx');
 
 
-describe("ReactVoltronSelect", function() {
+describe("ReactXzibitSelect", function() {
   var component;
 
   beforeEach(function() {
     component = TestUtils.renderIntoDocument(
-      <ReactVoltronSelect name="Jonh"/>
+      <ReactXzibitSelect name="Jonh"/>
     );
   });
 
   it("should render", function() {
-    expect(component.getDOMNode().className).toEqual('react-voltron-select');
+    expect(component.getDOMNode().className).toEqual('react-xzibit-select');
   });
 });

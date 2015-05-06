@@ -8,9 +8,9 @@ module.exports = {
   devtool: 'source-map',
   output: {
     path: path.join(__dirname),
-    filename: 'react-voltron-select.js',
+    filename: 'react-xzibit-select.js',
     libraryTarget: 'umd',
-    library: 'ReactVoltronSelect'
+    library: 'ReactXzibitSelect'
   },
 
   // externals: {

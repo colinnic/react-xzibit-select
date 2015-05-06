@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define(factory);
 	else if(typeof exports === 'object')
-		exports["ReactVoltronSelect"] = factory();
+		exports["ReactXzibitSelect"] = factory();
 	else
-		root["ReactVoltronSelect"] = factory();
+		root["ReactXzibitSelect"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(4);
-	var VoltronSelect = __webpack_require__(1);
+	var XzibitSelect = __webpack_require__(1);
 	var testData = __webpack_require__(2);
 	var _ = __webpack_require__(3);
 
 
-	var DemoVoltronSelect = React.createClass({displayName: "DemoVoltronSelect",
+	var DemoXzibitSelect = React.createClass({displayName: "DemoXzibitSelect",
 		options: function() {
 			return testData.fruits;
 		},
@@ -87,7 +87,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		},
 		render: function() {
 			return (
-				React.createElement(VoltronSelect, {
+				React.createElement(XzibitSelect, {
 					options: this.options(), 
 					initialValue: [], 
 					onChange: this.onChange, 
@@ -170,7 +170,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  					initialValue: [], 
 	  					onChange: this.generateUpdateDimensionFilter(dim.name)}));
 	  	}.bind(this));
-	    return React.createElement("div", {className: "react-voltron-select"}, 
+	    return React.createElement("div", {className: "react-xzibit-select"}, 
 	    			React.createElement(ReactTagList, {
 	    				values: this.state.values, 
 	    				onRemove: this.removeValue}), 
@@ -12564,8 +12564,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/css-loader/index.js!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/sass-loader/index.js?outputStyle=expanded&includePaths[]=/Users/jackcompton/projects/usaid/react-voltron-select/bower_components&includePaths[]=/Users/jackcompton/projects/usaid/react-voltron-select/node_modules!/Users/jackcompton/projects/usaid/react-voltron-select/lib/react-voltron-select.scss", function() {
-			var newContent = require("!!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/css-loader/index.js!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/sass-loader/index.js?outputStyle=expanded&includePaths[]=/Users/jackcompton/projects/usaid/react-voltron-select/bower_components&includePaths[]=/Users/jackcompton/projects/usaid/react-voltron-select/node_modules!/Users/jackcompton/projects/usaid/react-voltron-select/lib/react-voltron-select.scss");
+		module.hot.accept("!!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/css-loader/index.js!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/sass-loader/index.js?outputStyle=expanded&includePaths[]=/Users/jackcompton/projects/usaid/react-xzibit-select/bower_components&includePaths[]=/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules!/Users/jackcompton/projects/usaid/react-xzibit-select/lib/react-xzibit-select.scss", function() {
+			var newContent = require("!!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/css-loader/index.js!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/sass-loader/index.js?outputStyle=expanded&includePaths[]=/Users/jackcompton/projects/usaid/react-xzibit-select/bower_components&includePaths[]=/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules!/Users/jackcompton/projects/usaid/react-xzibit-select/lib/react-xzibit-select.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -14909,8 +14909,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/css-loader/index.js!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/sass-loader/index.js?outputStyle=expanded&includePaths[]=/Users/jackcompton/projects/usaid/react-voltron-select/bower_components&includePaths[]=/Users/jackcompton/projects/usaid/react-voltron-select/node_modules!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/react-tag-list/lib/react-tag-list.scss", function() {
-			var newContent = require("!!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/css-loader/index.js!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/sass-loader/index.js?outputStyle=expanded&includePaths[]=/Users/jackcompton/projects/usaid/react-voltron-select/bower_components&includePaths[]=/Users/jackcompton/projects/usaid/react-voltron-select/node_modules!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/react-tag-list/lib/react-tag-list.scss");
+		module.hot.accept("!!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/css-loader/index.js!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/sass-loader/index.js?outputStyle=expanded&includePaths[]=/Users/jackcompton/projects/usaid/react-xzibit-select/bower_components&includePaths[]=/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/react-tag-list/lib/react-tag-list.scss", function() {
+			var newContent = require("!!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/css-loader/index.js!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/sass-loader/index.js?outputStyle=expanded&includePaths[]=/Users/jackcompton/projects/usaid/react-xzibit-select/bower_components&includePaths[]=/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/react-tag-list/lib/react-tag-list.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -14939,8 +14939,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/css-loader/index.js!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/sass-loader/index.js?outputStyle=expanded&includePaths[]=/Users/jackcompton/projects/usaid/react-voltron-select/bower_components&includePaths[]=/Users/jackcompton/projects/usaid/react-voltron-select/node_modules!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/react-compact-multiselect/lib/react-compact-multiselect.scss", function() {
-			var newContent = require("!!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/css-loader/index.js!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/sass-loader/index.js?outputStyle=expanded&includePaths[]=/Users/jackcompton/projects/usaid/react-voltron-select/bower_components&includePaths[]=/Users/jackcompton/projects/usaid/react-voltron-select/node_modules!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/react-compact-multiselect/lib/react-compact-multiselect.scss");
+		module.hot.accept("!!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/css-loader/index.js!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/sass-loader/index.js?outputStyle=expanded&includePaths[]=/Users/jackcompton/projects/usaid/react-xzibit-select/bower_components&includePaths[]=/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/react-compact-multiselect/lib/react-compact-multiselect.scss", function() {
+			var newContent = require("!!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/css-loader/index.js!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/sass-loader/index.js?outputStyle=expanded&includePaths[]=/Users/jackcompton/projects/usaid/react-xzibit-select/bower_components&includePaths[]=/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/react-compact-multiselect/lib/react-compact-multiselect.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -32426,8 +32426,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/css-loader/index.js!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/sass-loader/index.js?outputStyle=expanded&includePaths[]=/Users/jackcompton/projects/usaid/react-voltron-select/bower_components&includePaths[]=/Users/jackcompton/projects/usaid/react-voltron-select/node_modules!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/react-compact-multiselect/node_modules/react-drop-button/lib/react-drop-button.scss", function() {
-			var newContent = require("!!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/css-loader/index.js!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/sass-loader/index.js?outputStyle=expanded&includePaths[]=/Users/jackcompton/projects/usaid/react-voltron-select/bower_components&includePaths[]=/Users/jackcompton/projects/usaid/react-voltron-select/node_modules!/Users/jackcompton/projects/usaid/react-voltron-select/node_modules/react-compact-multiselect/node_modules/react-drop-button/lib/react-drop-button.scss");
+		module.hot.accept("!!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/css-loader/index.js!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/sass-loader/index.js?outputStyle=expanded&includePaths[]=/Users/jackcompton/projects/usaid/react-xzibit-select/bower_components&includePaths[]=/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/react-compact-multiselect/node_modules/react-drop-button/lib/react-drop-button.scss", function() {
+			var newContent = require("!!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/css-loader/index.js!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/sass-loader/index.js?outputStyle=expanded&includePaths[]=/Users/jackcompton/projects/usaid/react-xzibit-select/bower_components&includePaths[]=/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules!/Users/jackcompton/projects/usaid/react-xzibit-select/node_modules/react-compact-multiselect/node_modules/react-drop-button/lib/react-drop-button.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
