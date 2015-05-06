@@ -73,6 +73,9 @@ module.exports = React.createClass({
   	// TODO: add throttling
   	this.setState({labelFilter: event.target.value});
   },
+  clearLabelFilter: function(event) {
+    this.setState({labelFilter: ''});
+  },
   generateUpdateDimensionFilter: function(dimensionName) {
   	/**
   	 *  {"Source" : [], "Sector" : []}
@@ -106,11 +109,13 @@ module.exports = React.createClass({
     				values={this.tagListValues()} 
     				onRemove={this.removeValue} />
     			{selectFilters}
-    			<input 
-    				className="rvs-label-filter" 
-    				onChange={this.updateLabelFilter} 
-    				value={this.state.labelFilter} 
-    				placeholder="Type to filter options..." />
+          <div className="rvs-label-filter">
+      			<input  
+      				onChange={this.updateLabelFilter} 
+      				value={this.state.labelFilter} 
+      				placeholder="Type to filter options..." />
+              <span className="rvs-label-filter-clear" onClick={this.clearLabelFilter}>X</span>
+          </div>
     			<OptionList 
     				options={this.filteredOptions()} 
     				onClick={this.addValue} />
