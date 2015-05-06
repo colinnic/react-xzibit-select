@@ -1,7 +1,8 @@
 var React = require("react/addons");
 var types = React.PropTypes;
 var OptionList = require("./components/option-list.jsx");
-var CompactMultiselect = require("react-compact-multiselect");
+var ReactCompactMultiselect = require("react-compact-multiselect");
+var MultiSelect = ReactCompactMultiselect.ReactCompactMultiselect;
 var TagList = require("react-tag-list");
 
 require("./react-voltron-select.scss");
@@ -93,11 +94,12 @@ module.exports = React.createClass({
   },
   render: function() {
   	var selectFilters = this.props.filterDimensions.map(function(dim){
-  		return (<CompactMultiselect 
+  		return (<MultiSelect 
   					label={dim.name} 
   					options={dim.options} 
   					initialValue={[]} 
-  					onChange={this.generateUpdateDimensionFilter(dim.name)} />);
+  					onChange={this.generateUpdateDimensionFilter(dim.name)}
+            layoutMode={ReactCompactMultiselect.BOTTOM_ALIGN} />);
   	}.bind(this));
     return <div className="react-voltron-select">
     			<TagList 

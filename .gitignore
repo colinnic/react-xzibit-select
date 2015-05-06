@@ -2,3 +2,7 @@ node_modules
 bower_components
 .DS_Store
 *.log
+
+
+react-voltron-select.js
+react-voltron-select.js.map
