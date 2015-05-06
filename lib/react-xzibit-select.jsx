@@ -5,7 +5,7 @@ var ReactCompactMultiselect = require("react-compact-multiselect");
 var MultiSelect = ReactCompactMultiselect.ReactCompactMultiselect;
 var TagList = require("react-tag-list");
 
-require("./react-voltron-select.scss");
+require("./react-xzibit-select.scss");
 
 module.exports = React.createClass({
   getInitialState: function() {
@@ -101,7 +101,7 @@ module.exports = React.createClass({
   					onChange={this.generateUpdateDimensionFilter(dim.name)}
             layoutMode={ReactCompactMultiselect.BOTTOM_ALIGN} />);
   	}.bind(this));
-    return <div className="react-voltron-select">
+    return <div className="react-xzibit-select">
     			<TagList 
     				values={this.tagListValues()} 
     				onRemove={this.removeValue} />
