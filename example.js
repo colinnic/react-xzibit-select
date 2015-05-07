@@ -33,12 +33,19 @@ var DemoXzibitSelect = React.createClass({
 		console.log(values);
 	},
 	render: function() {
+		//var divStyles = {height: 600, width: 800, border: '1px solid #aaa;'}; width and height are fluid meaning whatever container we place this in it will fill, 
+		//alternately you can also add a fixed width / height here to constrain the layout 
+		var divStyles = {boxShadow: '0px 0px 0px 1px #cacaca'};
+
+
 		return (
-			<XzibitSelect 
-				options={this.options()} 
-				initialValue={[]} 
-				onChange={this.onChange} 
-				filterDimensions={this.filterDimensions()}/>
+			<div style={divStyles}>
+				<XzibitSelect 
+					options={this.options()} 
+					initialValue={[]} 
+					onChange={this.onChange} 
+					filterDimensions={this.filterDimensions()}/>
+			</div>
 		);
 	}
 });
