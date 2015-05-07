@@ -100,26 +100,34 @@ module.exports = React.createClass({
   		return (<MultiSelect 
   					label={dim.name} 
   					options={dim.options} 
-  					initialValue={[]} 
+  					initialValue={[]}
   					onChange={this.generateUpdateDimensionFilter(dim.name)}
-            layoutMode={ReactCompactMultiselect.BOTTOM_ALIGN} />);
+            layoutMode={ReactCompactMultiselect.LEFT_ALIGN} />);
   	}.bind(this));
-    return <div className="react-xzibit-select">
-    			<TagList 
-    				values={this.tagListValues()} 
-    				onRemove={this.removeValue} />
-    			{selectFilters}
-          <div className="rvs-label-filter">
-      			<input  
-      				onChange={this.updateLabelFilter} 
-      				value={this.state.labelFilter} 
-      				placeholder="Type to filter options..." />
-              <span className="rvs-label-filter-clear" onClick={this.clearLabelFilter}>X</span>
-          </div>
-    			<OptionList 
-    				options={this.filteredOptions()} 
-    				onClick={this.addValue} />
 
-    	   </div>;
+    return <div className="react-xzibit-select">
+      			 <div className="fluid-layout">
+               <div className="header">
+                <TagList 
+          				values={this.tagListValues()} 
+          				onRemove={this.removeValue} />
+          			{selectFilters}
+                <div className="rvs-label-filter">
+            			<input  
+            				onChange={this.updateLabelFilter} 
+            				value={this.state.labelFilter} 
+            				placeholder="Type to filter options..." />
+                    <span className="rvs-label-filter-clear" onClick={this.clearLabelFilter}>X</span>
+                </div>
+              </div>
+        			<div className="content">
+                <div className="overflow-y">
+                  <OptionList 
+            				options={this.filteredOptions()} 
+            				onClick={this.addValue} />
+          	   </div>
+             </div>
+           </div>
+         </div>;
   }
 });
