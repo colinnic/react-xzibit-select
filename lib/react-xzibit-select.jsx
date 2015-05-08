@@ -110,7 +110,9 @@ module.exports = React.createClass({
                <div className="header">
                 <TagList 
           				values={this.tagListValues()} 
-          				onRemove={this.removeValue} />
+          				onRemove={this.removeValue}
+                  tagContainerCollapsedHeight={30}
+                  tagContainerExpandedHeight={62}  />
           			{selectFilters}
                 <div className="rvs-label-filter">
             			<input  

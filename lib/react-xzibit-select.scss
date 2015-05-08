@@ -38,6 +38,7 @@
 	.react-tag-list { //.rtl
 		@extend .font;
 		@extend .user-select;
+		width: inherit;
 		margin-bottom: 6px;
 		min-height: 16px;
 		background: linear-gradient(#e9e9e9, #f0f0f0);
@@ -53,6 +54,11 @@
 			padding: 3px 7px;
 			margin: 4px 4px 0px 0px;
 		}
+
+		.rtl-tags {
+			margin-top: 0px;
+		}
+
 		.rtl-remove-button {
 			margin-left: 8px;
 			display: inline-block;
