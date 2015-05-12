@@ -48,6 +48,7 @@ module.exports = React.createClass({
   	}
 
   	var retVal = true;
+
   	var filterHits = this.props.filterDimensions.map(function(dimension){
   		var key = dimension.key;
   		var name = dimension.name;
@@ -55,17 +56,28 @@ module.exports = React.createClass({
   		if (filterVals === undefined || filterVals.length < 1) {
   			return true;
   		}
-  		var index = filterVals.indexOf(opt[key]);
-  		if (index > -1) {
-  			return true;
-  		}
+      if (Array.isArray(opt[key])){
+        var found = false;
+        opt[key].forEach(function(optVal){
+          if (filterVals.indexOf(optVal) > -1) {
+            found = true;
+          }
+        });
+        return found;
+      } else {
+    		if (filterVals.indexOf(opt[key]) > -1) {
+    			return true;
+    		}
+      }
   		return false;
   	}.bind(this));
+
   	filterHits.forEach(function(fh){
   		if (!fh){
   			retVal = false;
   		}
   	});
+
   	return retVal;
   },
   updateLabelFilter: function(event) {

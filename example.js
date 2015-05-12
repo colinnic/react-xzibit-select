@@ -10,11 +10,17 @@ var DemoXzibitSelect = React.createClass({
 	},
 	filterDimensions: function() {
 		var colorOptions = _.uniq(testData.fruits.map(function(fruit){
+			if (Array.isArray(fruit.color)){
+				return fruit.color[0];
+			}
 			return fruit.color;
 		})).map(function(color){
 			return {value: color, label: color}
 		});
 		var growsOnOptions = _.uniq(testData.fruits.map(function(fruit){
+			if (Array.isArray(fruit.growsOn)){
+				return fruit.growsOn[0];
+			}
 			return fruit.growsOn;
 		})).map(function(growsOn){
 			return {value: growsOn, label: growsOn}
