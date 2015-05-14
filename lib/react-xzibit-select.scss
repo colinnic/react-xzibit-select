@@ -9,6 +9,16 @@
 	user-select: none;
 }
 
+//fixes height issue for doctype html
+html, body, #main {height:100%;margin:0;}
+#main {
+	box-sizing:border-box;
+	padding:8px;
+
+	& > div {height:100%;}	
+}
+
+
 .react-xzibit-select {
 	overflow: hidden;
 	width: 100%;
@@ -27,95 +37,86 @@
 			overflow-y: auto;
 		}
 	}
-	/****
-
-	WIP NOTES:
-	The styles above are used for layout
-	The styles below are used for this particular case
-
-	*****/
+	
 	.header {background: linear-gradient(#f9f9f9, #efefef);}
-	.react-tag-list { //.rtl
-		@extend .font;
-		@extend .user-select;
-		width: inherit;
-		margin-bottom: 6px;
-		min-height: 16px;
-		background: linear-gradient(#e9e9e9, #f0f0f0);
-		display: block;
-		border-bottom: 1px solid #dcdcdc;
-		padding: 0 4px 4px;
 
-		.rtl-tag {
-			display: inline-block;
-			border: 1px solid #d0d0d0;
-			border-radius: 3px;
-			background: #fff;
-			padding: 3px 7px;
-			margin: 4px 4px 0px 0px;
-		}
-
-		.rtl-tags {
-			margin-top: 0px;
-		}
-
-		.rtl-remove-button {
-			margin-left: 8px;
-			display: inline-block;
-			color: #e45050;
-			font-size: 12px;
-			padding: 0;
-			border-radius: 0;
-			text-decoration: none;
-			border: 0;
-			text-transform: uppercase;
-			position: relative;
-			top: -1px;
-			font-weight: bold;
-		}
-
-	}
 	.react-compact-multiselect {
 		float: left;
 		margin-left: 8px;
 		margin-bottom: 6px;
 
-		.react-drop-button .rdb-button {padding: 0;}
+		.react-drop-button {
+			.rdb-button {padding: .2em .3em;}
+			.rdb-drop-box {margin-top: -1px;}
+		}
 	}
-
+	
 	.rvs-label-filter {
 		clear: both;
 		padding: 0px 6px 6px;
-		position: relative;
 		border-bottom: 3px double #ccc;
+
+		.rsv-label-filter-container {position:relative;}
 
 		input {
 			width: 100%;
+			padding: .08em .2em .1em .2em;
 			font-size: 1em;
 			font-weight: 100;
-			font-family: Helvetica;
-			padding: 6px 32px 6px 4px;
-		}
+			line-height: 1;
+			box-sizing:border-box;
 
+			&::-webkit-input-placeholder {
+			   font-size:.8em;
+			   line-height: 1.4em;
+			   font-weight: 100;
+			   font-style: italic;
+			}
+
+			&::-moz-placeholder {  /* Firefox 19+ */
+			   font-size:.8em;
+			   line-height: 1.4em;
+			   font-weight: 100;
+			   font-style: italic;
+			}
+
+			&:-ms-input-placeholder {  
+			   font-size:.8em;
+			   line-height: 1.4em;
+			   font-weight: 100;
+			   font-style: italic;
+			}
+		}
 		.rvs-label-filter-clear {
-			@extend .user-select;
 			position: absolute;
+			cursor: pointer;
 			top: 0;
-			right: 6px;
-			padding: 8px;
+			right: 0;
+			padding: 0em .5em;
+			border: 0;
+			background: transparent;
+			font-size: 1em;
+			height: 100%;
 		}
 	}
 	.rvs-option-list {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+
+		li {margin: 5px 4px;}
 
 		.rvs-option-list-item {
 			@extend .font;
 			@extend .user-select;
 			background-color: #dbeff9;
-			margin: 5px 4px;
 			padding: 10px 6px;
 			font-size: 1em;
 			line-height: 1;
 			cursor: pointer;
+			border: 0;
+			width: 100%;
+			text-align: left;
 
 			&:hover {
 				background-color: #e3f3fb;

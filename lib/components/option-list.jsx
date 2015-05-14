@@ -12,8 +12,8 @@ module.exports = React.createClass({
   	var optionItems = this.props.options.map(function(opt){
   		return (<OptionListItem onClick={this.props.onClick} value={opt.value} label={opt.label} />);
   	}.bind(this));
-    return <div className="rvs-option-list">
+    return <ul className="rvs-option-list">
     		{optionItems}
-    	   </div>;
+    	   </ul>;
   }
 });
