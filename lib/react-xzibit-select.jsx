@@ -126,11 +126,13 @@ module.exports = React.createClass({
                   tagContainerExpandedHeight={62}  />
           			{selectFilters}
                 <div className="rvs-label-filter">
-            			<input  
+            			<div className="rsv-label-filter-container">
+                  <input  
             				onChange={this.updateLabelFilter} 
             				value={this.state.labelFilter} 
             				placeholder="Type to filter options..." />
-                    <span className="rvs-label-filter-clear" onClick={this.clearLabelFilter}>X</span>
+                  <button className="rvs-label-filter-clear" name="clear-filter" onClick={this.clearLabelFilter}>&#215;</button>
+                  </div>
                 </div>
               </div>
         			<div className="content">
