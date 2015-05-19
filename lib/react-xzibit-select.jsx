@@ -122,8 +122,7 @@ module.exports = React.createClass({
                 <TagList 
           				values={this.tagListValues()} 
           				onRemove={this.removeValue}
-                  tagContainerCollapsedHeight={30}
-                  tagContainerExpandedHeight={62}  />
+                  collapsedRows={1} />
           			{selectFilters}
                 <div className="rvs-label-filter">
             			<div className="rsv-label-filter-container">
