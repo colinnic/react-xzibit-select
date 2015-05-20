@@ -2,6 +2,7 @@ var React = require("react/addons");
 var types = React.PropTypes;
 var OptionListItem = require("./option-list-item.jsx");
 var LazyRender = require("react-lazy-render");
+var ReactSizeBox = require("react-sizebox");
 
 module.exports = React.createClass({
   propTypes: {
@@ -17,12 +18,17 @@ module.exports = React.createClass({
     if (optionItems.length === 0) {
       optionItems = [(<li>Loading...</li>)];
     }
+    var sizeBoxStyles = {
+      height: "100%"
+    };
 
     return (
-      <ul className="rvs-option-list">
-    		  <LazyRender maxHeight={500}>
+      <ul className="rxs-option-list">
+        <ReactSizeBox className="rsx-optionListSizeBox" style={sizeBoxStyles} heightProp="maxHeight">
+    		  <LazyRender className="rsx-optionListLazyRender">
             {optionItems}
           </LazyRender>
+        </ReactSizeBox>
     	</ul>
     );
   }
