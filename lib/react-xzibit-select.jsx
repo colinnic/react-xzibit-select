@@ -113,7 +113,7 @@ module.exports = React.createClass({
   					options={dim.options} 
   					initialValue={[]}
   					onChange={this.generateUpdateDimensionFilter(dim.name)}
-            layoutMode={ReactCompactMultiselect.LEFT_ALIGN} />);
+            layoutMode={ReactCompactMultiselect.ALIGN_CONTENT_NE} />);
   	}.bind(this));
 
     return <div className="react-xzibit-select">
@@ -122,27 +122,30 @@ module.exports = React.createClass({
                 <TagList 
           				values={this.tagListValues()} 
           				onRemove={this.removeValue}
-                  tagContainerCollapsedHeight={30}
-                  tagContainerExpandedHeight={62}  />
-          			{selectFilters}
-                <div className="rvs-label-filter">
-            			<div className="rsv-label-filter-container">
-                  <input  
-            				onChange={this.updateLabelFilter} 
-            				value={this.state.labelFilter} 
-            				placeholder="Type to filter options..." />
-                  <button className="rvs-label-filter-clear" name="clear-filter" onClick={this.clearLabelFilter}>&#215;</button>
-                  </div>
-                </div>
-              </div>
-        			<div className="content">
+                  collapsedRows={1}  />
+               </div>
+        			 <div className="content">
                 <div className="overflow-y">
                   <OptionList 
             				options={this.filteredOptions()} 
             				onClick={this.addValue} />
-          	   </div>
+          	    </div>
+               </div>
+               <div className="footer">
+                <div className="rvs-label-filter">
+                  <div className="rsv-label-filter-container">
+                  <input  
+                    onChange={this.updateLabelFilter} 
+                    value={this.state.labelFilter} 
+                    placeholder="Type to filter options..." />
+                  <button className="rvs-label-filter-clear" name="clear-filter" onClick={this.clearLabelFilter}>&#215;</button>
+                  </div>
+                </div>
+                <div className="filter-multiselect">
+                  {selectFilters}
+                </div>
+               </div>
              </div>
-           </div>
-         </div>;
+           </div>;
   }
 });

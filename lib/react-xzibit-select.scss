@@ -8,6 +8,12 @@
 	-o-user-select: none;
 	user-select: none;
 }
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 
 //fixes height issue for doctype html
 html, body, #main {height:100%;margin:0;}
@@ -31,6 +37,7 @@ html, body, #main {height:100%;margin:0;}
 
 		& > div.header {display: table-header-group;}
 		& > div.content {display: table-row;}
+		& > div.footer {display: table-footer-group;}
 		.overflow-y {
 			width: 100%;
 			height: 100%;
@@ -38,23 +45,166 @@ html, body, #main {height:100%;margin:0;}
 		}
 	}
 	
-	.header {background: linear-gradient(#f9f9f9, #efefef);}
+	.header {background:linear-gradient(#f0f0f0, #f6f6f6);}
+	.footer {background: linear-gradient(#f9f9f9, #efefef);}
 
+	.react-tag-list {
+		padding: 0 2.4em 0 0.6em;
+		border-bottom: 3px double #ccc;
+		
+		
+		//apply the following to RTL including the concept 
+		//of 2em padding-right for the parent .react-tag-list
+		.rtl-tags {
+			box-sizing: content-box;
+			padding-bottom: 0;
+			padding-right: 0;
+		}
+		.rtl-tag {margin-right:.8em;}
+		.rtl-remove-button {
+			line-height: 1;
+			&:hover {
+				background-color:rgba(120,120,120,.2);
+				box-shadow: inset 2px 0 0 0 rgba(255,255,255,1); //artifically matched background in the tag to reduce width of the background color on hover
+			}
+		}
+		.expand-control {
+  			top: .7em;
+  			.expand-button {line-height: .9em;}
+  		}
+  		&.parent-expand .expand-control {top:auto;}
+	}
+	
 	.react-compact-multiselect {
 		float: left;
-		margin-left: 8px;
 		margin-bottom: 6px;
+		width: 48%;
 
+		.rcm-menu {
+			.deselect-all,
+			.select-all {
+				max-width: none;
+			}
+			button span {line-height: 2.2em;}
+			.done-selecting-button {line-height: 1.4em;}
+		}
+		.rcm-selected-count:before {
+			width: 120%;
+			height: 100%;
+			top: -2%;
+		}
+
+		.rcm-filter-box {
+			.clear-filter {
+				top: .4em;
+				right: .4em;
+				padding: 0.08em .8em .1em;
+				font-size: 1em;
+				height: 2em;
+				box-sizing: border-box;
+				line-height: 1;
+			}
+			input {
+				line-height: 1.6em;
+				&::-webkit-input-placeholder {
+				   line-height: 2.1;
+				   text-indent: .2em;
+				}
+				&::-moz-placeholder {  /* Firefox 19+ */
+				   line-height: 2.1;
+				   text-indent: .2em;
+				}
+				&:-ms-input-placeholder {  
+				   line-height: 2.1;
+				   text-indent: .2em;
+				}
+			}
+		}
 		.react-drop-button {
-			.rdb-button {padding: .2em .3em;}
-			.rdb-drop-box {margin-top: -1px;}
+			width: 100%;
+			.rdb-button {
+				width: 100%;
+				text-align: left;
+
+				//consider moving to RDB to help with touch
+				padding: .2em .4em;
+				line-height: 1.6em;
+
+				//creates the drop arrow, more styling could be done for :hover/focus and :active
+				&:before {
+					position: absolute;
+					top: 0;
+					right: 0;
+					width: 2em;
+					height: 100%;
+					background-color: #dfdfdf;
+					border-radius: 0 3px 3px 0px;
+					content: " ";
+					border-left: 1px solid #d9d9d9;
+					box-shadow: inset 1px 1px 0px 0px rgba(255,255,255,.3), inset -1px -1px 0px 0px rgba(180,180,180,.1);
+				}
+				&:after {
+					position: absolute;
+					content: " ";
+					top: 0.7em;
+					right: .5em;
+					border-bottom: .5em solid #bbb;
+					border-right: .5em solid transparent;
+					border-left: .5em solid transparent;
+				}
+			}
+		}
+	}
+
+	.filter-multiselect {
+		width: 100%;
+		min-height: 2em;
+		padding: 0 8px;
+		box-sizing: border-box;
+
+		.react-compact-multiselect + .react-compact-multiselect {
+			float:right;
+		}
+		.rdb-drop-box {
+			min-width: 100%;
+			min-height: 36vh;
+			max-height: 74vh;
+			margin-bottom: 8px;
+			
+			//creates the tail on the drop-box content
+			&:before {
+				border: inset 7px;
+				content: "";
+				display: block;
+				height: 0;
+				width: 0;
+				border-color: #F5F5F5 transparent transparent transparent;
+				border-top-style: solid;
+				position: absolute;
+				bottom: -14px;
+				left: 12px;
+				z-index: 100004;
+			}
+			&:after {
+				border: inset 8px;
+				content: "";
+				display: block;
+				height: 0;
+				width: 0;
+				border-color: #cacaca transparent transparent transparent;
+				border-top-style: solid;
+				position: absolute;
+				bottom: -16px;
+				left: 11px;
+				z-index: 100003;
+			}
 		}
 	}
 	
 	.rvs-label-filter {
 		clear: both;
-		padding: 0px 6px 6px;
-		border-bottom: 3px double #ccc;
+		padding: 8px 8px 10px;
+		border-top: 3px double #ccc;
 
 		.rsv-label-filter-container {position:relative;}
 
@@ -63,26 +213,29 @@ html, body, #main {height:100%;margin:0;}
 			padding: .08em .2em .1em .2em;
 			font-size: 1em;
 			font-weight: 100;
-			line-height: 1;
+			line-height: 1.8em;
 			box-sizing:border-box;
 
 			&::-webkit-input-placeholder {
 			   font-size:.8em;
-			   line-height: 1.4em;
+			   line-height: 2.25;
+			   text-indent: .2em;
 			   font-weight: 100;
 			   font-style: italic;
 			}
 
 			&::-moz-placeholder {  /* Firefox 19+ */
 			   font-size:.8em;
-			   line-height: 1.4em;
+			   line-height: 2.25;
+			   text-indent: .2em;
 			   font-weight: 100;
 			   font-style: italic;
 			}
 
 			&:-ms-input-placeholder {  
 			   font-size:.8em;
-			   line-height: 1.4em;
+			   line-height: 2.25;
+			   text-indent: .2em;
 			   font-weight: 100;
 			   font-style: italic;
 			}
@@ -92,11 +245,12 @@ html, body, #main {height:100%;margin:0;}
 			cursor: pointer;
 			top: 0;
 			right: 0;
-			padding: 0em .5em;
+			padding: 0em .7em;
 			border: 0;
 			background: transparent;
 			font-size: 1em;
 			height: 100%;
+			line-height: 1px;
 		}
 	}
 	.rvs-option-list {
@@ -110,7 +264,7 @@ html, body, #main {height:100%;margin:0;}
 			@extend .font;
 			@extend .user-select;
 			background-color: #dbeff9;
-			padding: 10px 6px;
+			padding: 10px .4em;
 			font-size: 1em;
 			line-height: 1;
 			cursor: pointer;
