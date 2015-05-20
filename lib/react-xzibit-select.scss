@@ -201,7 +201,7 @@ html, body, #main {height:100%;margin:0;}
 		}
 	}
 	
-	.rvs-label-filter {
+	.rxs-label-filter {
 		clear: both;
 		padding: 8px 8px 10px;
 		border-top: 3px double #ccc;
@@ -240,7 +240,7 @@ html, body, #main {height:100%;margin:0;}
 			   font-style: italic;
 			}
 		}
-		.rvs-label-filter-clear {
+		.rxs-label-filter-clear {
 			position: absolute;
 			cursor: pointer;
 			top: 0;
@@ -253,14 +253,14 @@ html, body, #main {height:100%;margin:0;}
 			line-height: 1px;
 		}
 	}
-	.rvs-option-list {
+	.rxs-option-list {
 		margin: 0;
 		padding: 0;
 		list-style-type: none;
 
 		li {margin: 5px 4px;}
 
-		.rvs-option-list-item {
+		.rxs-option-list-item {
 			@extend .font;
 			@extend .user-select;
 			background-color: #dbeff9;

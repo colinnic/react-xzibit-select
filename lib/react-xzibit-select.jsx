@@ -132,13 +132,13 @@ module.exports = React.createClass({
           	    </div>
                </div>
                <div className="footer">
-                <div className="rvs-label-filter">
+                <div className="rxs-label-filter">
                   <div className="rsv-label-filter-container">
                   <input  
                     onChange={this.updateLabelFilter} 
                     value={this.state.labelFilter} 
                     placeholder="Type to filter options..." />
-                  <button className="rvs-label-filter-clear" name="clear-filter" onClick={this.clearLabelFilter}>&#215;</button>
+                  <button className="rxs-label-filter-clear" name="clear-filter" onClick={this.clearLabelFilter}>&#215;</button>
                   </div>
                 </div>
                 <div className="filter-multiselect">

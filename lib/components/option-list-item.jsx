@@ -11,6 +11,6 @@ module.exports = React.createClass({
   	this.props.onClick(this.props.value);
   },
   render: function() {
-    return <li><button className="rvs-option-list-item" onClick={this.handleClick}>{this.props.label}</button></li>;
+    return <li><button className="rxs-option-list-item" onClick={this.handleClick}>{this.props.label}</button></li>;
   }
 });
