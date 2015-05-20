@@ -124,13 +124,9 @@ module.exports = React.createClass({
           				onRemove={this.removeValue}
                   collapsedRows={1}  />
                </div>
-        			 <div className="content">
-                <div className="overflow-y">
-                  <OptionList 
-            				options={this.filteredOptions()} 
-            				onClick={this.addValue} />
-          	    </div>
-               </div>
+               <OptionList 
+        				 options={this.filteredOptions()} 
+        				 onClick={this.addValue} />
                <div className="footer">
                 <div className="rxs-label-filter">
                   <div className="rsv-label-filter-container">

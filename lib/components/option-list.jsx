@@ -18,18 +18,15 @@ module.exports = React.createClass({
     if (optionItems.length === 0) {
       optionItems = [(<li>Loading...</li>)];
     }
-    var sizeBoxStyles = {
-      height: "100%"
-    };
 
     return (
-      <ul className="rxs-option-list">
-        <ReactSizeBox className="rsx-optionListSizeBox" style={sizeBoxStyles} heightProp="maxHeight">
-    		  <LazyRender className="rsx-optionListLazyRender">
+      <div className="content">
+        <ReactSizeBox className="overflow-y rsx-SizeBox" heightProp="maxHeight">
+    		  <LazyRender className="rxs-option-list rsx-lazyRender">
             {optionItems}
           </LazyRender>
         </ReactSizeBox>
-    	</ul>
+      </div>
     );
   }
 });
