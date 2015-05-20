@@ -10,7 +10,7 @@
     "dev": "./node_modules/.bin/webpack-dev-server --inline --hot",
     "postinstall": "bower install"
   },
-  "main" : "./lib/index.js",
+  "main": "./lib/index.js",
   "author": "",
   "license": "BSD",
   "devDependencies": {
@@ -34,6 +34,7 @@
     "lodash": "^3.8.0",
     "react": "^0.12.2",
     "react-compact-multiselect": "git+https://github.com/BI/react-compact-multiselect",
+    "react-lazy-render": "^0.2.1",
     "react-tag-list": "git+https://github.com/BI/react-tag-list"
   }
 }
