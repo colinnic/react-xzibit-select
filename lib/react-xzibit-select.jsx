@@ -106,6 +106,9 @@ module.exports = React.createClass({
    		})[0];
   	}.bind(this));
   },
+  removeAll: function() {
+    this.setState({values: []});
+  },
   render: function() {
   	var selectFilters = this.props.filterDimensions.map(function(dim){
   		return (<ReactCompactMultiselect 
@@ -122,6 +125,7 @@ module.exports = React.createClass({
                 <TagList 
           				values={this.tagListValues()} 
           				onRemove={this.removeValue}
+                  removeAll={this.removeAll}
                   collapsedRows={1}  />
                </div>
                <OptionList 
