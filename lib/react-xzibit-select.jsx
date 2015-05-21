@@ -27,12 +27,12 @@ module.exports = React.createClass({
   	var newValueState = this.state.values.filter(function(val){
   		return val !== valToRemove;
   	});
-  	this.setState({values: newValueState}, this.handleChange());
+  	this.setState({values: newValueState}, this.handleChange);
   },
   addValue: function(valToAdd){ 
   	var newValueState = this.state.values.slice(0);
   	newValueState.push(valToAdd);
-  	this.setState({values: newValueState}, this.handleChange());
+  	this.setState({values: newValueState}, this.handleChange);
   },
   filteredOptions: function() {
   	return this.props.options.filter(function(opt){
