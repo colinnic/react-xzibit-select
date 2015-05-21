@@ -16,7 +16,7 @@ module.exports = React.createClass({
   	}.bind(this));
 
     if (optionItems.length === 0) {
-      optionItems = [(<li>Loading...</li>)];
+      optionItems = [(<li>None Found</li>)];
     }
 
     return (
