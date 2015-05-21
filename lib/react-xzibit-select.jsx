@@ -29,6 +29,9 @@ module.exports = React.createClass({
   	});
   	this.setState({values: newValueState}, this.handleChange);
   },
+  removeAll: function() {
+    this.setState({values: []}, this.handleChange);
+  },
   addValue: function(valToAdd){ 
   	var newValueState = this.state.values.slice(0);
   	newValueState.push(valToAdd);
@@ -105,9 +108,6 @@ module.exports = React.createClass({
    			return opt.value === val;
    		})[0];
   	}.bind(this));
-  },
-  removeAll: function() {
-    this.setState({values: []});
   },
   render: function() {
   	var selectFilters = this.props.filterDimensions.map(function(dim){
