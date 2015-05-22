@@ -18,7 +18,11 @@ module.exports = React.createClass({
   	options: types.array,
   	initialValue: types.array,
   	onChange: types.func,
-  	filterDimensions: types.array
+  	filterDimensions: types.array,
+    addAll: types.bool
+  },
+  getDefaultProps: function() {
+    return {addAll: true};
   },
   handleChange: function(){
   	this.props.onChange(this.state.values);
@@ -36,6 +40,10 @@ module.exports = React.createClass({
   	var newValueState = this.state.values.slice(0);
   	newValueState.push(valToAdd);
   	this.setState({values: newValueState}, this.handleChange);
+  },
+  addAllFunc: function() {
+    var filteredValues = this.filteredOptions().map(function(opt){ return opt.value;});
+    this.setState({values: filteredValues}, this.handleChange);
   },
   filteredOptions: function() {
   	return this.props.options.filter(function(opt){
@@ -130,7 +138,9 @@ module.exports = React.createClass({
                </div>
                <OptionList 
         				 options={this.filteredOptions()} 
-        				 onClick={this.addValue} />
+        				 onClick={this.addValue}
+                 addAll={this.props.addAll}
+                 addAllFunc={this.addAllFunc} />
                <div className="footer">
                 <div className="rxs-label-filter">
                   <div className="rsv-label-filter-container">
