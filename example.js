@@ -5,6 +5,11 @@ var _ = require("lodash");
 
 
 var DemoXzibitSelect = React.createClass({
+	getInitialState: function(){
+		return {
+			values: []
+		};
+	},
 	options: function() {
 		return testData.fruits;
 	},
@@ -15,7 +20,7 @@ var DemoXzibitSelect = React.createClass({
 			}
 			return fruit.color;
 		})).map(function(color){
-			return {value: color, label: color}
+			return {value: color, label: color};
 		});
 		var growsOnOptions = _.uniq(testData.fruits.map(function(fruit){
 			if (Array.isArray(fruit.growsOn)){
@@ -23,7 +28,7 @@ var DemoXzibitSelect = React.createClass({
 			}
 			return fruit.growsOn;
 		})).map(function(growsOn){
-			return {value: growsOn, label: growsOn}
+			return {value: growsOn, label: growsOn};
 		});
 
 		return [
@@ -36,6 +41,7 @@ var DemoXzibitSelect = React.createClass({
 		];
 	},
 	onChange: function(values){
+		this.setState({values: values});
 		console.log(values);
 	},
 	render: function() {
@@ -48,7 +54,7 @@ var DemoXzibitSelect = React.createClass({
 			<div style={divStyles}>
 				<XzibitSelect 
 					options={this.options()} 
-					initialValue={[]} 
+					values={this.state.values} 
 					onChange={this.onChange} 
 					filterDimensions={this.filterDimensions()}/>
 			</div>

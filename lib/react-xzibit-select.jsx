@@ -9,14 +9,13 @@ require("./react-xzibit-select.scss");
 module.exports = React.createClass({
 	getInitialState: function() {
 		return {
-			values: [],
 			labelFilter: '',
 			dimensionFilter: {}
 		};
 	},
 	propTypes: {
 		options: types.array,
-		initialValue: types.array,
+		values: types.array,
 		onChange: types.func,
 		filterDimensions: types.array,
 		addAll: types.bool,
@@ -25,30 +24,27 @@ module.exports = React.createClass({
 	getDefaultProps: function() {
 		return {addAll: true};
 	},
-	handleChange: function(){
-		this.props.onChange(this.state.values);
-	},
 	removeValue: function(valToRemove) {
-		var newValueState = this.state.values.filter(function(val){
+		var newValueState = this.props.values.filter(function(val){
 			return val !== valToRemove;
 		});
-		this.setState({values: newValueState}, this.handleChange);
+		this.props.onChange(newValueState);
 	},
 	removeAll: function() {
-		this.setState({values: []}, this.handleChange);
+		this.props.onChange([]);
 	},
 	addValue: function(valToAdd){ 
-		var newValueState = this.state.values.slice(0);
+		var newValueState = this.props.values.slice(0);
 		newValueState.push(valToAdd);
-		this.setState({values: newValueState}, this.handleChange);
+		this.props.onChange(newValueState);
 	},
 	addAllFunc: function() {
-		var filteredValues = this.filteredOptions().map(function(opt){ return opt.value;});
-		this.setState({values: filteredValues}, this.handleChange);
+		var newValueState = this.filteredOptions().map(function(opt){ return opt.value;});
+		this.props.onChange(newValueState);
 	},
 	filteredOptions: function() {
 		return this.props.options.filter(function(opt){
-			return (this.state.values.indexOf(opt.value) < 0) 
+			return (this.props.values.indexOf(opt.value) < 0) 
 				&& (opt.label.toLowerCase().indexOf(this.state.labelFilter.toLowerCase()) > -1)
 				&& (this.dimensionFilterIncludes(opt));
 		}.bind(this));
@@ -112,7 +108,7 @@ module.exports = React.createClass({
 	},
 	tagListValues: function() {
 		// SLOW!! too slow??
-		return this.state.values.map(function(val){
+		return this.props.values.map(function(val){
 			return this.props.options.filter(function(opt){
 				return opt.value === val;
 			})[0];
