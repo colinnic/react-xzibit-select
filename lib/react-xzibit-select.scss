@@ -197,7 +197,15 @@ html, body, #main {height:100%;margin:0;}
 			height: 100% !important;
 		}
 
-		.rxs-option-list-item {margin: 5px 4px;}
+		.rxs-option-list-item {
+			margin: 5px 4px;
+
+			&.add-all {
+				.rxs-option-button {
+					background-color: rgb(135, 218, 135);
+				}
+			}
+		}
 
 		.rxs-option-button {
 			@extend .font;
