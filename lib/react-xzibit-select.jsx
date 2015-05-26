@@ -39,7 +39,8 @@ module.exports = React.createClass({
 		this.props.onChange(newValueState);
 	},
 	addAllFunc: function() {
-		var newValueState = this.filteredOptions().map(function(opt){ return opt.value;});
+		var filteredOptionValues = this.filteredOptions().map(function(opt){ return opt.value;});
+		var newValueState = filteredOptionValues.concat(this.props.values);
 		this.props.onChange(newValueState);
 	},
 	filteredOptions: function() {
