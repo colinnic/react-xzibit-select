@@ -22,13 +22,23 @@ var DemoXzibitSelect = React.createClass({
 		})).map(function(color){
 			return {value: color, label: color};
 		});
+		var groupPlantsKey = "size";
 		var growsOnOptions = _.uniq(testData.fruits.map(function(fruit){
+			var dimension = {};
 			if (Array.isArray(fruit.growsOn)){
-				return fruit.growsOn[0];
+				dimension.growsOn = fruit.growsOn[0];
+				dimension.groupByKey = fruit[groupPlantsKey];
+				return dimension;
 			}
-			return fruit.growsOn;
-		})).map(function(growsOn){
-			return {value: growsOn, label: growsOn};
+			dimension.growsOn = fruit.growsOn;
+			dimension.groupByKey = fruit[groupPlantsKey];
+			return dimension;
+		}), 'growsOn').map(function(growsOn){
+			var dimension = {};
+			dimension.value = growsOn.growsOn;
+			dimension.label = growsOn.growsOn;
+			dimension[groupPlantsKey] = growsOn.groupByKey;
+			return dimension;
 		});
 
 		return [
@@ -37,7 +47,8 @@ var DemoXzibitSelect = React.createClass({
 			 options: colorOptions},
 			{name: "Grows On",
 			 key: "growsOn",
-			 options: growsOnOptions}
+			 options: growsOnOptions,
+			 groupByKey: groupPlantsKey}
 		];
 	},
 	onChange: function(values){
