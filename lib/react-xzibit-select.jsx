@@ -117,10 +117,15 @@ module.exports = React.createClass({
 	},
 	render: function() {
 		var selectFilters = this.props.filterDimensions.map(function(dim){
+			var groupByKey = "";
+			if(dim.groupByKey)
+				groupByKey = dim.groupByKey;
+
 			return (<ReactCompactMultiselect 
 						label={dim.name} 
 						options={dim.options} 
 						initialValue={[]}
+						groupBy={groupByKey}
 						onChange={this.generateUpdateDimensionFilter(dim.name)}
 						layoutMode={ReactCompactMultiselect.ALIGN_CONTENT_NE} />);
 		}.bind(this));
