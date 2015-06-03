@@ -223,6 +223,19 @@ html, body, #main {height:100%;margin:0;}
 				background-color: #e3f3fb;
 				box-shadow: inset 0 0 1px 0 rgba(120, 120, 120, 0.4);
 			}
+
+			.hover-icon {
+				background-color: #6BC4D0;
+				color: white;
+				border-radius: 40px;
+				float: right;
+				padding: 5px 10px;
+				margin-right: 15px;
+
+				&:hover {
+					background-color: 67B0BA;
+				}
+			}
 		}
 	}
 }
