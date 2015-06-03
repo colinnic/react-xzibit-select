@@ -101,6 +101,16 @@ html, body, #main {height:100%;margin:0;}
 
 		.react-compact-multiselect + .react-compact-multiselect {
 			float:right;
+			
+			.react-drop-button.align-content-ne .rdb-drop-box {//align-content-nw styles
+				transform-origin: 98% 98%;
+				bottom: 100%;
+				border-radius: 3px 3px 1px 1px;
+				right: 0;
+
+				&:before {left:auto;right:12px;}
+				&:after {left:auto;right: 11px;}
+			}
 		}
 		.rdb-drop-box {
 			min-width: 100%;
@@ -135,12 +145,6 @@ html, body, #main {height:100%;margin:0;}
 				left: 11px;
 				z-index: 97;
 			}
-
-			.align-content-ne {
-				.rdb-drop-box:before {right:12px;}
-				.rdb-drop-box:after {right: 11px;}
-			}
-
 		}
 	}
 	
