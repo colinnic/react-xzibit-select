@@ -101,7 +101,7 @@ html, body, #main {height:100%;margin:0;}
 
 		.react-compact-multiselect + .react-compact-multiselect {
 			float:right;
-			
+
 			.react-drop-button.align-content-ne .rdb-drop-box {//align-content-nw styles
 				transform-origin: 98% 98%;
 				bottom: 100%;
@@ -225,7 +225,8 @@ html, body, #main {height:100%;margin:0;}
 			@extend .font;
 			@extend .user-select;
 			background-color: #dbeff9;
-			padding: 10px .4em;
+			padding: 10px 2.4em 10px .4em;
+			position: relative;
 			font-size: 1em;
 			line-height: 1;
 			cursor: pointer;
@@ -241,10 +242,14 @@ html, body, #main {height:100%;margin:0;}
 			.hover-icon {
 				background-color: #6BC4D0;
 				color: white;
-				border-radius: 40px;
-				float: right;
-				padding: 5px 10px;
-				margin-right: 15px;
+				border-radius: 1.6em;
+				position: absolute;
+				top: .4em;
+				right: 10px;
+				width: 1.6em;
+				height: 1.58em;
+				text-align: center;
+				line-height: 1.6em;
 
 				&:hover {
 					background-color: #67B0BA;
