@@ -37,6 +37,8 @@ html, body, #main {height:100%;margin:0;}
 			width: 100%;
 			height: 100%;
 			position:relative;
+
+			&.rsx-SizeBox {overflow: hidden;} //overflow added to child
 		}
 	}
 	
@@ -59,6 +61,7 @@ html, body, #main {height:100%;margin:0;}
 
 		.react-drop-button {
 			width: 100%;
+			.drop-box-content {min-height:200px;}
 			.rdb-button {
 				width: 100%;
 				text-align: left;
@@ -87,6 +90,7 @@ html, body, #main {height:100%;margin:0;}
 				}
 			}
 		}
+		.fluid-layout .overflow-y {min-height:64px;}
 	}
 
 	.filter-multiselect {
@@ -97,6 +101,16 @@ html, body, #main {height:100%;margin:0;}
 
 		.react-compact-multiselect + .react-compact-multiselect {
 			float:right;
+
+			.react-drop-button.align-content-ne .rdb-drop-box {//align-content-nw styles
+				transform-origin: 98% 98%;
+				bottom: 100%;
+				border-radius: 3px 3px 1px 1px;
+				right: 0;
+
+				&:before {left:auto;right:12px;}
+				&:after {left:auto;right: 11px;}
+			}
 		}
 		.rdb-drop-box {
 			min-width: 100%;
@@ -116,7 +130,7 @@ html, body, #main {height:100%;margin:0;}
 				position: absolute;
 				bottom: -14px;
 				left: 12px;
-				z-index: 100004;
+				z-index: 98;
 			}
 			&:after {
 				border: inset 8px;
@@ -129,7 +143,7 @@ html, body, #main {height:100%;margin:0;}
 				position: absolute;
 				bottom: -16px;
 				left: 11px;
-				z-index: 100003;
+				z-index: 97;
 			}
 		}
 	}
@@ -211,7 +225,8 @@ html, body, #main {height:100%;margin:0;}
 			@extend .font;
 			@extend .user-select;
 			background-color: #dbeff9;
-			padding: 10px .4em;
+			padding: 10px 2.4em 10px .4em;
+			position: relative;
 			font-size: 1em;
 			line-height: 1;
 			cursor: pointer;
@@ -223,6 +238,27 @@ html, body, #main {height:100%;margin:0;}
 				background-color: #e3f3fb;
 				box-shadow: inset 0 0 1px 0 rgba(120, 120, 120, 0.4);
 			}
+
+			.hover-icon {
+				background-color: #6BC4D0;
+				color: white;
+				border-radius: 1.6em;
+				position: absolute;
+				top: .4em;
+				right: 10px;
+				width: 1.6em;
+				height: 1.58em;
+				text-align: center;
+				line-height: 1.6em;
+
+				&:hover {
+					background-color: #67B0BA;
+				}
+			}
 		}
 	}
+}
+
+@media only screen and (max-width: 500px) {
+	.react-xzibit-select .filter-multiselect .rdb-drop-box {min-width: 180%;}
 }

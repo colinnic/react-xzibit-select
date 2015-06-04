@@ -13,14 +13,16 @@ module.exports = React.createClass({
 	},
 	render: function() {
 		var optionItems = this.props.options.map(function(opt){
-			return (<OptionListItem onClick={this.props.onClick} value={opt.value} label={opt.label} />);
+			var hoverInfo = "";
+			if(opt.hoverInfo) hoverInfo = String(opt.hoverInfo);
+			return (<OptionListItem onClick={this.props.onClick} value={opt.value} label={opt.label} hoverInfo={hoverInfo}/>);
 		}.bind(this));
 
 		if (optionItems.length === 0)
 			optionItems = [(<li>None Found</li>)];
 		else if(this.props.addAll) {
 			var addAllOption = (
-				<OptionListItem addAll={this.props.addAll} onClick={this.props.addAllFunc} value={"Add All"} label="Add All"/>
+				<OptionListItem addAll={this.props.addAll} onClick={this.props.addAllFunc} value={"Add All"} label="Add All" />
 			);
 			optionItems.splice(0, 0, addAllOption);
 		}
