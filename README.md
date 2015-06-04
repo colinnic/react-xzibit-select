@@ -8,6 +8,7 @@ When your selection needs demand a filterable select that is filtered by other f
 * **initialValue**: (Array of values selected) Usually set this to [], so that no values are initially selected.
 * **onChange**: (Function) This function gets called when any values are selected or deselected in the select list. The function receives the values currently selected as a parameter.
 * **filterDimensions**: (Array of objects containing 'name', 'key', and 'option' properties) These are the dimensions that the data can be filtered by. The 'name' property is what that dimension's ReactCompactMulti select will show in its heading. The 'key' is the key corresponding to the option data foreign key, and the 'options' should be an array of unique values that we can filter the dimension on.
+* **placeholderText**: (String) The placeholder text for the "tag list" showing selected items.
 
 JSX
 ```js
