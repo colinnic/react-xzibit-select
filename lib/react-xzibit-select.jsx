@@ -22,7 +22,10 @@ module.exports = React.createClass({
 		addAllLimit: types.number
 	},
 	getDefaultProps: function() {
-		return {addAll: true};
+		return {
+			addAll: true,
+			placeholderText: "Choose a value below",
+		};
 	},
 	removeValue: function(valToRemove) {
 		var newValueState = this.props.values.filter(function(val){
@@ -138,10 +141,11 @@ module.exports = React.createClass({
 				<div className="fluid-layout">
 					<div className="header">
 					<TagList 
-					values={this.tagListValues()} 
-					onRemove={this.removeValue}
-					removeAll={this.removeAll}
-					collapsedRows={1}  />
+						values={this.tagListValues()} 
+						onRemove={this.removeValue}
+						removeAll={this.removeAll}
+						collapsedRows={1}
+						placeholderText={this.props.placeholderText}  />
 					</div>
 					<OptionList 
 					options={this.filteredOptions()} 
