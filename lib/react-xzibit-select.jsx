@@ -45,9 +45,9 @@ module.exports = React.createClass({
 	},
 	filteredOptions: function() {
 		return this.props.options.filter(function(opt){
-			return (this.props.values.indexOf(opt.value) < 0) 
-				&& (opt.label.toLowerCase().indexOf(this.state.labelFilter.toLowerCase()) > -1)
-				&& (this.dimensionFilterIncludes(opt));
+			return (this.props.values.indexOf(opt.value) < 0) &&
+				(opt.label.toLowerCase().indexOf(this.state.labelFilter.toLowerCase()) > -1) &&
+				(this.dimensionFilterIncludes(opt));
 		}.bind(this));
 	},
 	dimensionFilterIncludes: function(opt) {
@@ -93,7 +93,7 @@ module.exports = React.createClass({
 		// TODO: add throttling
 		this.setState({labelFilter: event.target.value});
 	},
-	clearLabelFilter: function(event) {
+	clearLabelFilter: function() {
 	  this.setState({labelFilter: ''});
 	},
 	generateUpdateDimensionFilter: function(dimensionName) {

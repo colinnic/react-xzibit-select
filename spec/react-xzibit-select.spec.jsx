@@ -1,4 +1,4 @@
-var React = require('react');
+var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var ReactXzibitSelect = require('../lib/react-xzibit-select.jsx');
 
