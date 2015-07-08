@@ -1,4 +1,4 @@
-# react-xzibit-select
+# react-xzibit-select [![Build Status](https://travis-ci.org/BI/react-xzibit-select.png)](https://travis-ci.org/BI/react-xzibit-select)
 
 When your selection needs demand a filterable select that is filtered by other filterable selects, you need react-xzibit-select. [Demo It](http://BI.github.io/react-xzibit-select)
 
