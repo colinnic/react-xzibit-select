@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "lodash": "^3.8.0",
-    "react": "^0.12.2",
+    "react": "~0.13.3",
     "react-compact-multiselect": "git+https://github.com/BI/react-compact-multiselect",
     "react-lazy-render": "git+https://github.com/BI/react-lazy-render",
     "react-tag-list": "git+https://github.com/BI/react-tag-list",
