@@ -1,5 +1,7 @@
 var React = require("react/addons");
 var types = React.PropTypes;
+var Opentip = require('opentip');
+require('opentip/css/opentip.css');
 
 module.exports = React.createClass({
   propTypes: {
@@ -12,13 +14,26 @@ module.exports = React.createClass({
   handleClick: function(){
   	this.props.onClick(this.props.value);
   },
+  createTooltip: function(tooltip, component) {
+    if(component === null) {
+      console.log("null component")
+      return;
+    }
+
+    if(component.tooltip) {
+      console.log('no tooltip')
+      return;
+    }
+console.log(tooltip);
+    component.tooltip = new Opentip(React.findDOMNode(component), tooltip, {delay: 0});
+  },
   render: function() {
     var className = "rxs-option-list-item", hoverIcon = "";
     if(this.props.addAll)
       className += " add-all";
     if(this.props.hoverInfo && this.props.hoverInfo !== "") {
       hoverIcon = (
-        <div className="hover-icon" title={this.props.hoverInfo}>i</div>
+        <div className="hover-icon" ref={this.createTooltip.bind(this, this.props.hoverInfo)}>i</div>
       );
     }
     return <div className={className}><button className="rxs-option-button" onClick={this.handleClick}>{this.props.label}{hoverIcon}</button></div>;
