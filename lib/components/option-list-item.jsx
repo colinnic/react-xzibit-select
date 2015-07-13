@@ -16,15 +16,13 @@ module.exports = React.createClass({
   },
   createTooltip: function(tooltip, component) {
     if(component === null) {
-      console.log("null component")
       return;
     }
 
     if(component.tooltip) {
-      console.log('no tooltip')
       return;
     }
-console.log(tooltip);
+
     component.tooltip = new Opentip(React.findDOMNode(component), tooltip, {delay: 0});
   },
   render: function() {
