@@ -29,11 +29,13 @@
     "webpack-dev-server": "^1.7.0"
   },
   "dependencies": {
+    "jquery": "^2.1.4",
     "lodash": "^3.8.0",
-    "react": "^0.12.2",
+    "opentip": "git://github.com/enyo/opentip",
+    "react": "^0.13.0",
     "react-compact-multiselect": "git+https://github.com/BI/react-compact-multiselect",
     "react-lazy-render": "git+https://github.com/BI/react-lazy-render",
-    "react-tag-list": "git+https://github.com/BI/react-tag-list",
-    "react-sizebox": "git+https://github.com/BI/react-sizebox"
+    "react-sizebox": "git+https://github.com/BI/react-sizebox",
+    "react-tag-list": "git+https://github.com/BI/react-tag-list"
   }
 }
