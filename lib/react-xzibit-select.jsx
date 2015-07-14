@@ -125,6 +125,7 @@ var XzibitSelect = React.createClass({
 				groupByKey = dim.groupByKey;
 
 			return (<ReactCompactMultiselect 
+						key={dim.name}
 						label={dim.name} 
 						options={dim.options} 
 						initialValue={[]}
