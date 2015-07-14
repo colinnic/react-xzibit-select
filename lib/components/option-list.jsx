@@ -4,7 +4,7 @@ var OptionListItem = require("./option-list-item.jsx");
 var LazyRender = require("react-lazy-render");
 var ReactSizeBox = require("react-sizebox");
 
-module.exports = React.createClass({
+var OptionList = React.createClass({
 	propTypes: {
 		options: types.array,
 		onClick: types.func,
@@ -38,3 +38,5 @@ module.exports = React.createClass({
 		);
 	}
 });
+
+module.exports = OptionList;

@@ -3,7 +3,7 @@ var types = React.PropTypes;
 var Opentip = require('opentip');
 require('opentip/css/opentip.css');
 
-module.exports = React.createClass({
+var OptionListItem = React.createClass({
   propTypes: {
   	label: types.string,
   	value: types.any,
@@ -37,3 +37,5 @@ module.exports = React.createClass({
     return <div className={className}><button className="rxs-option-button" onClick={this.handleClick}>{this.props.label}{hoverIcon}</button></div>;
   }
 });
+
+module.exports = OptionListItem;
