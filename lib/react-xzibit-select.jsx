@@ -48,10 +48,31 @@ module.exports = React.createClass({
 	},
 	filteredOptions: function() {
 		return this.props.options.filter(function(opt){
-			return (this.props.values.indexOf(opt.value) < 0) &&
-				(opt.label.toLowerCase().indexOf(this.state.labelFilter.toLowerCase()) > -1) &&
-				(this.dimensionFilterIncludes(opt));
+			if(this.props.values.indexOf(opt.value) !== -1 || !this.dimensionFilterIncludes(opt)) return false;
+
+			if(typeof opt.label === "string") {
+				return (opt.label.toLowerCase().indexOf(this.state.labelFilter.toLowerCase()) > -1);
+			}
+			else if(typeof opt.label === "object"){ //its a react element
+				var labelString = this.extractLabelString(opt.label, "");
+				return (labelString.toLowerCase().indexOf(this.state.labelFilter.toLowerCase()) > -1);
+			}
+			
 		}.bind(this));
+	},
+	extractLabelString: function(reactElement, currentString) {
+		if(typeof reactElement === "string") {
+			return currentString + reactElement;
+		}
+		else if(typeof reactElement === "object" && reactElement.length === undefined){ //react element
+			return currentString + this.extractLabelString(reactElement.props.children, currentString)
+		}
+		else if(typeof reactElement === "object" && reactElement.length > 0) {//keep adding strings, and traverse to find more
+			for(var i = 0; i < reactElement.length; i ++) {
+				currentString += this.extractLabelString(reactElement[i], currentString);
+			}
+			return currentString;
+		}
 	},
 	dimensionFilterIncludes: function(opt) {
 		
@@ -119,6 +140,7 @@ module.exports = React.createClass({
 		}.bind(this));
 	},
 	render: function() {
+		var filteredOptions = this.filteredOptions();
 		var selectFilters = this.props.filterDimensions.map(function(dim){
 			var groupByKey = "";
 			if(dim.groupByKey)
@@ -133,7 +155,7 @@ module.exports = React.createClass({
 						layoutMode={ReactCompactMultiselect.ALIGN_CONTENT_NE} />);
 		}.bind(this));
 		var addAll = this.props.addAll;
-		if(this.props.addAllLimit && this.filteredOptions().length > this.props.addAllLimit) 
+		if(this.props.addAllLimit && filteredOptions.length > this.props.addAllLimit) 
 			addAll=false;
 
 		return (
@@ -148,7 +170,7 @@ module.exports = React.createClass({
 						placeholderText={this.props.placeholderText}  />
 					</div>
 					<OptionList 
-					options={this.filteredOptions()} 
+					options={filteredOptions} 
 					onClick={this.addValue}
 					addAll={addAll}
 					addAllFunc={this.addAllFunc} />

@@ -5,7 +5,7 @@ require('opentip/css/opentip.css');
 
 module.exports = React.createClass({
   propTypes: {
-  	label: types.string,
+  	label: types.element,
   	value: types.any,
   	onClick: types.func,
     addAll: types.bool,

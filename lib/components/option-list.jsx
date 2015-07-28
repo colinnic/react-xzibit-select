@@ -13,15 +13,19 @@ module.exports = React.createClass({
 	},
 	render: function() {
 		var optionItems = this.props.options.map(function(opt){
+
 			var toolTipContent = "";
 			if(opt.toolTipContent) toolTipContent = String(opt.toolTipContent);
+
 			return (
 				<OptionListItem 
 					key={opt.value}
 					onClick={this.props.onClick} 
 					value={opt.value} 
 					label={opt.label} 
-					toolTipContent={toolTipContent}/>);
+					toolTipContent={toolTipContent}/>
+			);
+
 		}.bind(this));
 
 		if (optionItems.length === 0)
