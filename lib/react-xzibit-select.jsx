@@ -6,7 +6,7 @@ var TagList = require("react-tag-list");
 
 require("./react-xzibit-select.scss");
 
-module.exports = React.createClass({
+var XzibitSelect = React.createClass({
 	getInitialState: function() {
 		return {
 			labelFilter: '',
@@ -49,30 +49,9 @@ module.exports = React.createClass({
 	filteredOptions: function() {
 		return this.props.options.filter(function(opt){
 			if(this.props.values.indexOf(opt.value) !== -1 || !this.dimensionFilterIncludes(opt)) return false;
-
-			if(typeof opt.label === "string") {
-				return (opt.label.toLowerCase().indexOf(this.state.labelFilter.toLowerCase()) > -1);
-			}
-			else if(typeof opt.label === "object"){ //its a react element
-				var labelString = this.extractLabelString(opt.label, "");
-				return (labelString.toLowerCase().indexOf(this.state.labelFilter.toLowerCase()) > -1);
-			}
+			return (opt.label.toLowerCase().indexOf(this.state.labelFilter.toLowerCase()) > -1);
 			
 		}.bind(this));
-	},
-	extractLabelString: function(reactElement, currentString) {
-		if(typeof reactElement === "string") {
-			return currentString + reactElement;
-		}
-		else if(typeof reactElement === "object" && reactElement.length === undefined){ //react element
-			return currentString + this.extractLabelString(reactElement.props.children, currentString)
-		}
-		else if(typeof reactElement === "object" && reactElement.length > 0) {//keep adding strings, and traverse to find more
-			for(var i = 0; i < reactElement.length; i ++) {
-				currentString += this.extractLabelString(reactElement[i], currentString);
-			}
-			return currentString;
-		}
 	},
 	dimensionFilterIncludes: function(opt) {
 		
@@ -147,6 +126,7 @@ module.exports = React.createClass({
 				groupByKey = dim.groupByKey;
 
 			return (<ReactCompactMultiselect 
+						key={dim.name}
 						label={dim.name} 
 						options={dim.options} 
 						initialValue={[]}
@@ -193,3 +173,5 @@ module.exports = React.createClass({
 		);
 	}
 });
+
+module.exports = XzibitSelect;

@@ -47,6 +47,20 @@ html, body, #main {height:100%;margin:0;}
 
 	.react-tag-list {border-bottom: 3px double #ccc;}
 	
+	.custom-option-tag {
+		display: inline;
+		margin-left: 10px;
+		border: 1px solid gold;
+		border-radius: 2px;
+		color: yellow;
+		font-size: 10px;
+		padding: 2px 4px;
+
+		&:hover{
+			background: rgba(220, 220, 72, 0.25);
+		}
+	}
+
 	.react-compact-multiselect {
 		float: left;
 		margin-bottom: 6px;
