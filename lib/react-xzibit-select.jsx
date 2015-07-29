@@ -48,9 +48,9 @@ var XzibitSelect = React.createClass({
 	},
 	filteredOptions: function() {
 		return this.props.options.filter(function(opt){
-			return (this.props.values.indexOf(opt.value) < 0) &&
-				(opt.label.toLowerCase().indexOf(this.state.labelFilter.toLowerCase()) > -1) &&
-				(this.dimensionFilterIncludes(opt));
+			if(this.props.values.indexOf(opt.value) !== -1 || !this.dimensionFilterIncludes(opt)) return false;
+			return (opt.label.toLowerCase().indexOf(this.state.labelFilter.toLowerCase()) > -1);
+			
 		}.bind(this));
 	},
 	dimensionFilterIncludes: function(opt) {
@@ -119,6 +119,7 @@ var XzibitSelect = React.createClass({
 		}.bind(this));
 	},
 	render: function() {
+		var filteredOptions = this.filteredOptions();
 		var selectFilters = this.props.filterDimensions.map(function(dim){
 			var groupByKey = "";
 			if(dim.groupByKey)
@@ -134,7 +135,7 @@ var XzibitSelect = React.createClass({
 						layoutMode={ReactCompactMultiselect.ALIGN_CONTENT_NE} />);
 		}.bind(this));
 		var addAll = this.props.addAll;
-		if(this.props.addAllLimit && this.filteredOptions().length > this.props.addAllLimit) 
+		if(this.props.addAllLimit && filteredOptions.length > this.props.addAllLimit) 
 			addAll=false;
 
 		return (
@@ -149,7 +150,7 @@ var XzibitSelect = React.createClass({
 						placeholderText={this.props.placeholderText}  />
 					</div>
 					<OptionList 
-					options={this.filteredOptions()} 
+					options={filteredOptions} 
 					onClick={this.addValue}
 					addAll={addAll}
 					addAllFunc={this.addAllFunc} />

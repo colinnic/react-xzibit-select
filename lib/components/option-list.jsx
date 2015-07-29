@@ -13,19 +13,24 @@ var OptionList = React.createClass({
 	},
 	render: function() {
 		var optionItems = this.props.options.map(function(opt){
-			var toolTipContent = "";
-			var toolTipTitle = "";
+			var toolTipContent = "", toolTipTitle = "", label;
 			if(opt.toolTipContent) toolTipContent = String(opt.toolTipContent);
 			if(opt.toolTipTitle) toolTipTitle = String(opt.toolTipTitle);
-			
+			if(opt.labelComponent) 
+				label = opt.labelComponent;
+			else
+				label = opt.label;
+
 			return (
 				<OptionListItem 
 					key={opt.value}
 					onClick={this.props.onClick} 
 					value={opt.value} 
-					label={opt.label} 
+					label={label} 
 					toolTipContent={toolTipContent}
-					toolTipTitle={toolTipTitle}/>);
+					toolTipTitle={toolTipTitle}/>
+			);
+
 		}.bind(this));
 
 		if (optionItems.length === 0)

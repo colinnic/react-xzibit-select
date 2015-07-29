@@ -5,9 +5,9 @@ require('opentip/css/opentip.css');
 
 var OptionListItem = React.createClass({
   propTypes: {
-    label: types.string,
-    value: types.any,
-    onClick: types.func,
+  	label: types.any,
+  	value: types.any,
+  	onClick: types.func,
     addAll: types.bool,
     toolTipContent: types.string,
     toolTipTitle: types.string

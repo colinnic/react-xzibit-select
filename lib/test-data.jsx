@@ -1,6 +1,9 @@
+var React = require("react/addons");
+var BananaElement = (<div>Banana<div className="custom-option-tag"><span>Yummy</span></div></div>);
+
 module.exports = {
 	fruits: [{ value: "Apple", label: "Apple", color: ["Red", "Green", "Yellow"], growsOn: "Tree", size: "big"},
-			 { value: "Banana", label: "Banana", color: "Yellow", growsOn: "Tree", toolTipContent: "Tool tip content", toolTipTitle: "BANANAS", size: "big"},
+			 { value: "Banana", label: "Banana", labelComponent: BananaElement, color: "Yellow", growsOn: "Tree", toolTipContent: "Loaded with potassium", toolTipTitle: "BANANAS", size: "big"},
 			 { value: "Coconut", label: "Coconut", color: "Brown", growsOn: "Tree", size: "big"},
 			 { value: "Durian", label: "Durian", color: "Green", growsOn: "Tree", size: "big"},
 			 { value: "Elderberry", label: "Elderberry", color: "Purple", growsOn: "Tree", size: "big"},
