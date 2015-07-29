@@ -5,15 +5,15 @@ require('opentip/css/opentip.css');
 
 var OptionListItem = React.createClass({
   propTypes: {
-  	label: types.string,
-  	value: types.any,
-  	onClick: types.func,
+    label: types.string,
+    value: types.any,
+    onClick: types.func,
     addAll: types.bool,
-    hoverInfo: types.string,
-    hoverInfoTitle: types.string
+    toolTipContent: types.string,
+    toolTipTitle: types.string
   },
   handleClick: function(){
-  	this.props.onClick(this.props.value);
+    this.props.onClick(this.props.value);
   },
   createTooltip: function(component) {
     if(component === null) {
@@ -24,7 +24,7 @@ var OptionListItem = React.createClass({
       return;
     }
 
-    component.tooltip = new Opentip(React.findDOMNode(component), this.props.hoverInfo, this.props.hoverInfoTitle, {delay: 0});
+    component.tooltip = new Opentip(React.findDOMNode(component), this.props.toolTipContent, this.props.toolTipTitle, {delay: 0});
   },
   //needed for mobile to be able to show tooltips on mobile
   blockEvent: function(event) {
@@ -36,7 +36,7 @@ var OptionListItem = React.createClass({
 
     if(this.props.addAll)
       className += " add-all";
-    if(this.props.hoverInfo && this.props.hoverInfo !== "") {
+    if(this.props.toolTipContent && this.props.toolTipContent !== "") {
       hoverIcon = (
         <div className="hover-icon" onClick={this.blockEvent} ref={this.createTooltip}>i</div>
       );
