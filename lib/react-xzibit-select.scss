@@ -45,7 +45,15 @@ html, body, #main {height:100%;margin:0;}
 	.header {background:linear-gradient(#f0f0f0, #f6f6f6);}
 	.footer {background: linear-gradient(#f9f9f9, #efefef);}
 
-	.react-tag-list {border-bottom: 3px double #ccc;}
+	.react-tag-list {
+		border-bottom: 3px double #ccc;
+
+		.rtl-tags {
+			margin:0;
+			min-height:auto;
+		}
+		.rtl-placeholder {display: none;}
+	}
 	
 	.custom-option-tag {
 		display: inline;
@@ -63,7 +71,7 @@ html, body, #main {height:100%;margin:0;}
 
 	.react-compact-multiselect {
 		float: left;
-		margin-bottom: 6px;
+		margin-bottom: 8px;
 		width: 48%;
 
 		.rcm-menu {
@@ -110,7 +118,8 @@ html, body, #main {height:100%;margin:0;}
 	.filter-multiselect {
 		width: 100%;
 		min-height: 2em;
-		padding: 0 8px;
+		padding: 10px 8px 0;
+		border-top: 3px double #ccc;
 		box-sizing: border-box;
 
 		.react-compact-multiselect + .react-compact-multiselect {
@@ -164,8 +173,7 @@ html, body, #main {height:100%;margin:0;}
 	
 	.rxs-label-filter {
 		clear: both;
-		padding: 8px 8px 10px;
-		border-top: 3px double #ccc;
+		padding: 8px 8px 0;
 
 		.rsv-label-filter-container {position:relative;}
 
