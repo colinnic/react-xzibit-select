@@ -10,7 +10,25 @@ var OptionListItem = React.createClass({
   	onClick: types.func,
     addAll: types.bool,
     toolTipContent: types.string,
-    toolTipTitle: types.string
+    toolTipTitle: types.string,
+    openTipOptions: types.object
+  },
+  getDefaultProps: function() {
+    return {
+      openTipOptions: {
+        offset: [3, 10],
+        borderRadius: 2,
+        borderColor: '#333333',
+        background: '#333333',
+        className: 'rxs-tooltip',
+        delay: 0,
+        hideDelay: 0,
+        showEffectDuration: 0,
+        hideEffectDuration: 0,
+        tipJoint: "top left",
+        stem: false
+      }
+    };
   },
   handleClick: function(){
     this.props.onClick(this.props.value);
@@ -24,7 +42,7 @@ var OptionListItem = React.createClass({
       return;
     }
 
-    component.tooltip = new Opentip(React.findDOMNode(component), this.props.toolTipContent, this.props.toolTipTitle, {delay: 0});
+    component.tooltip = new Opentip(React.findDOMNode(component), this.props.toolTipContent, this.props.toolTipTitle, this.props.openTipOptions);
   },
   //needed for mobile to be able to show tooltips on mobile
   blockEvent: function(event) {

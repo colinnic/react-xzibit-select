@@ -281,6 +281,12 @@ html, body, #main {height:100%;margin:0;}
 	}
 }
 
+.opentip-container.style-rxs-tooltip .opentip{
+    font-size: 13px;
+    color: white;
+
+}
+
 @media only screen and (max-width: 500px) {
 	.react-xzibit-select .filter-multiselect .rdb-drop-box {min-width: 180%;}
 }
