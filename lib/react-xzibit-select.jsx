@@ -24,7 +24,7 @@ var XzibitSelect = React.createClass({
 	getDefaultProps: function() {
 		return {
 			addAll: true,
-			placeholderText: "Choose a value below",
+			placeholderText: "Choose a value below or type to filter options",
 		};
 	},
 	removeValue: function(valToRemove) {
@@ -142,12 +142,20 @@ var XzibitSelect = React.createClass({
 			<div className="react-xzibit-select">
 				<div className="fluid-layout">
 					<div className="header">
-					<TagList 
-						values={this.tagListValues()} 
-						onRemove={this.removeValue}
-						removeAll={this.removeAll}
-						collapsedRows={1}
-						placeholderText={this.props.placeholderText}  />
+						<div className="rxs-label-filter">
+							<div className="rsv-label-filter-container">
+							<input  
+							onChange={this.updateLabelFilter} 
+							value={this.state.labelFilter} 
+							placeholder={this.props.placeholderText} />
+							<button className="rxs-label-filter-clear" name="clear-filter" onClick={this.clearLabelFilter}>&#215;</button>
+							</div>
+						</div>
+						<TagList 
+							values={this.tagListValues()} 
+							onRemove={this.removeValue}
+							removeAll={this.removeAll}
+							collapsedRows={1} />
 					</div>
 					<OptionList 
 					options={filteredOptions} 
@@ -155,15 +163,6 @@ var XzibitSelect = React.createClass({
 					addAll={addAll}
 					addAllFunc={this.addAllFunc} />
 					<div className="footer">
-						<div className="rxs-label-filter">
-							<div className="rsv-label-filter-container">
-							<input  
-							onChange={this.updateLabelFilter} 
-							value={this.state.labelFilter} 
-							placeholder="Type to filter options..." />
-							<button className="rxs-label-filter-clear" name="clear-filter" onClick={this.clearLabelFilter}>&#215;</button>
-							</div>
-						</div>
 						<div className="filter-multiselect">
 						{selectFilters}
 						</div>
