@@ -15,6 +15,7 @@ var XzibitSelect = React.createClass({
 	},
 	propTypes: {
 		options: types.array,
+		optionsByValue: types.any,
 		values: types.array,
 		onChange: types.func,
 		filterDimensions: types.array,
@@ -112,10 +113,23 @@ var XzibitSelect = React.createClass({
 	},
 	tagListValues: function() {
 		// SLOW!! too slow??
-		return this.props.values.map(function(val){
-			return this.props.options.filter(function(opt){
+		// ...fixing...
+		// 
+
+		var mapFunc = function(val){
+		  return this.props.options.filter(function(opt){
 				return opt.value === val;
 			})[0];
+		}.bind(this);
+
+		if (this.props.optionsByValue) {
+			mapFunc = function(val){
+				return this.props.optionsByValue[val];
+			}.bind(this);
+		}
+
+		return this.props.values.map(function(val){
+			return mapFunc(val);
 		}.bind(this));
 	},
 	render: function() {
@@ -145,9 +159,9 @@ var XzibitSelect = React.createClass({
 						<div className="rxs-label-filter">
 							<div className="rsv-label-filter-container">
 							<input  
-							onChange={this.updateLabelFilter} 
-							value={this.state.labelFilter} 
-							placeholder={this.props.placeholderText} />
+								onChange={this.updateLabelFilter} 
+								value={this.state.labelFilter} 
+								placeholder={this.props.placeholderText} />
 							<button className="rxs-label-filter-clear" name="clear-filter" onClick={this.clearLabelFilter}>&#215;</button>
 							</div>
 						</div>
@@ -158,10 +172,10 @@ var XzibitSelect = React.createClass({
 							collapsedRows={1} />
 					</div>
 					<OptionList 
-					options={filteredOptions} 
-					onClick={this.addValue}
-					addAll={addAll}
-					addAllFunc={this.addAllFunc} />
+						options={filteredOptions} 
+						onClick={this.addValue}
+						addAll={addAll}
+						addAllFunc={this.addAllFunc} />
 					<div className="footer">
 						<div className="filter-multiselect">
 						{selectFilters}
