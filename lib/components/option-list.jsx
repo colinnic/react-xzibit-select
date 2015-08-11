@@ -31,7 +31,7 @@ var OptionList = React.createClass({
 					toolTipTitle={toolTipTitle}/>
 			);
 
-		}.bind(this));
+		}, this);
 
 		if (optionItems.length === 0)
 			optionItems = [(<li>None Found</li>)];
