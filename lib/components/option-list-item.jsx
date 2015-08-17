@@ -1,18 +1,17 @@
 var React = require("react/addons");
-var types = React.PropTypes;
 var Opentip = require('opentip');
 require('opentip/css/opentip.css');
 
 var OptionListItem = React.createClass({
-  propTypes: {
-  	label: types.any,
-  	value: types.any,
-  	onClick: types.func,
-    addAll: types.bool,
-    toolTipContent: types.string,
-    toolTipTitle: types.string,
-    openTipOptions: types.object
-  },
+  // propTypes: {
+  // 	label: types.any,
+  // 	value: types.any,
+  // 	onClick: types.func,
+  //   addAll: types.bool,
+  //   toolTipContent: types.string,
+  //   toolTipTitle: types.string,
+  //   openTipOptions: types.object
+  // },
   getDefaultProps: function() {
     return {
       openTipOptions: {
