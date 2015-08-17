@@ -1,5 +1,4 @@
 var React = require("react/addons");
-var types = React.PropTypes;
 var Opentip = require('opentip');
 require('opentip/css/opentip.css');
 
