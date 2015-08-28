@@ -36,9 +36,7 @@ var OptionListItem = React.createClass({
     this.props.onClick(this.props.value);
   },
   createTooltip: function(component) {
-    if(component === null
-    || this.tooltip
-    || this.isMobile()) {
+    if(component === null || this.tooltip || this.isMobile()) {
       return;
     }
 
