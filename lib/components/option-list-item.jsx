@@ -86,8 +86,9 @@ var OptionListItem = React.createClass({
         skyLight = (
           <SkyLight
             ref="tooltip"
-            title={this.props.tooltipTitle}>
-            {this.props.toolTipContent}
+            title={this.props.tooltipTitle}
+            className="mobile-tooltip">
+            <div dangerouslySetInnerHTML={{__html: this.props.toolTipContent}} />
           </SkyLight>
         );
       }
