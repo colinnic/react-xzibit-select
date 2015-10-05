@@ -96,12 +96,13 @@ var OptionListItem = React.createClass({
 
     return (
       <div className={className}>
-        <button
+        <div
+          tabIndex="0"
           className="rxs-option-button"
           onClick={this.handleClick}>
           {this.props.label}
           {hoverIcon}
-        </button>
+        </div>
         {skyLight}
       </div>
     );

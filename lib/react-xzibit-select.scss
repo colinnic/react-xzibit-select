@@ -255,6 +255,7 @@ html, body, #main {height:100%;margin:0;}
 			border: 0;
 			width: 100%;
 			text-align: left;
+			box-sizing:border-box;
 
 			&:hover {
 				background-color: #e3f3fb;
