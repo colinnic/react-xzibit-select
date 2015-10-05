@@ -97,6 +97,7 @@ var OptionListItem = React.createClass({
     return (
       <div className={className}>
         <div
+          role="button"
           tabIndex="0"
           className="rxs-option-button"
           onClick={this.handleClick}>
