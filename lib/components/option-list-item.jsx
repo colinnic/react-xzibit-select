@@ -2,6 +2,7 @@ var React = require("react/addons");
 var Opentip = require('opentip');
 var SkyLight = require('react-skylight');
 var IsMobileMixin = require('../mixins/IsMobileMixin.jsx');
+var classes = require("classnames");
 require('opentip/css/opentip.css');
 
 var OptionListItem = React.createClass({
@@ -64,13 +65,8 @@ var OptionListItem = React.createClass({
     event.stopPropagation();
   },
   render: function() {
-    var className = "rxs-option-list-item",
-    hoverIcon = null,
-    skyLight = null;
-
-    if(this.props.addAll) {
-      className += " add-all";
-    }
+    var hoverIcon = null;
+    var skyLight = null;
 
     if(this.props.toolTipContent && this.props.toolTipContent !== "") {
       hoverIcon = (
@@ -93,6 +89,8 @@ var OptionListItem = React.createClass({
         );
       }
     }
+
+    var className = classes("rxs-option-list-item", this.props.className, {"add-all": this.props.addAll});
 
     return (
       <div className={className}>
