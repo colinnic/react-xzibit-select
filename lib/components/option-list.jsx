@@ -3,6 +3,7 @@ var types = React.PropTypes;
 var OptionListItem = require("./option-list-item.jsx");
 var LazyRender = require("react-lazy-render");
 var ReactSizeBox = require("react-sizebox");
+var classes = require("classnames");
 
 var OptionList = React.createClass({
 	propTypes: {
@@ -11,7 +12,7 @@ var OptionList = React.createClass({
 		addAll: types.bool,
 		addAllFunc: types.func
 	},
-	buildOption: function(opt){
+	buildOption: function(opt, index){
 		if(opt.addAll) {
 			return <OptionListItem key="Add All" addAll={this.props.addAll} onClick={this.props.addAllFunc} value={"Add All"} label="Add All" />;
 		}
@@ -24,8 +25,11 @@ var OptionList = React.createClass({
 		else
 			label = opt.label;
 
+		var className = classes({"rxs-item-even": index % 2 === 0, "rxs-item-odd": index % 2 === 1});
+
 		return (
 			<OptionListItem 
+				className={className}
 				key={opt.value}
 				onClick={this.props.onClick} 
 				value={opt.value} 
