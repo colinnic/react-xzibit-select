@@ -52,7 +52,7 @@ var XzibitSelect = React.createClass({
 			if(this.props.values.indexOf(opt.value) !== -1 || !this.dimensionFilterIncludes(opt)) return false;
 			return (opt.label.toLowerCase().indexOf(this.state.labelFilter.toLowerCase()) > -1);
 			
-		}.bind(this));
+		}, this);
 	},
 	dimensionFilterIncludes: function(opt) {
 		
@@ -83,7 +83,7 @@ var XzibitSelect = React.createClass({
 				}
 			}
 			return false;
-		}.bind(this));
+		}, this);
 
 		filterHits.forEach(function(fh){
 			if (!fh){
@@ -114,23 +114,23 @@ var XzibitSelect = React.createClass({
 	tagListValues: function() {
 		// SLOW!! too slow??
 		// ...fixing...
-		// 
+		// I might have fixed it -Stephen
 
-		var mapFunc = function(val){
-		  return this.props.options.filter(function(opt){
-				return opt.value === val;
-			})[0];
-		}.bind(this);
+		var mapFunc = function(){};
 
 		if (this.props.optionsByValue) {
 			mapFunc = function(val){
 				return this.props.optionsByValue[val];
-			}.bind(this);
+			};
+		} else {
+			mapFunc = function(val){
+			  return this.props.options.filter(function(opt){
+					return opt.value === val;
+				})[0];
+			};
 		}
 
-		return this.props.values.map(function(val){
-			return mapFunc(val);
-		}.bind(this));
+		return this.props.values.map(mapFunc, this);
 	},
 	render: function() {
 		var filteredOptions = this.filteredOptions();
@@ -147,7 +147,7 @@ var XzibitSelect = React.createClass({
 						groupBy={groupByKey}
 						onChange={this.generateUpdateDimensionFilter(dim.name)}
 						layoutMode={ReactCompactMultiselect.ALIGN_CONTENT_NE} />);
-		}.bind(this));
+		}, this);
 		var addAll = this.props.addAll;
 		if(this.props.addAllLimit && filteredOptions.length > this.props.addAllLimit) 
 			addAll=false;
