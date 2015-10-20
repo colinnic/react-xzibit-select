@@ -142,7 +142,8 @@ var XzibitSelect = React.createClass({
 			return (<ReactCompactMultiselect 
 						key={dim.name}
 						label={dim.name} 
-						options={dim.options} 
+						options={dim.options}
+						info={dim.info} 
 						initialValue={[]}
 						groupBy={groupByKey}
 						onChange={this.generateUpdateDimensionFilter(dim.name)}
