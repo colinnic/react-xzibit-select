@@ -38,7 +38,10 @@ html, body, #main {height:100%;margin:0;}
 			height: 100%;
 			position:relative;
 
-			&.rsx-SizeBox {overflow: hidden;} //overflow added to child
+			&.rsx-SizeBox {
+				overflow: hidden; //overflow added to child
+				display: table-cell;
+			} 
 		}
 	}
 	
@@ -230,7 +233,7 @@ html, body, #main {height:100%;margin:0;}
 		&.rsx-lazyRender {
 			position: absolute;
 			width: 100%;
-			height: 100% !important;
+			//height: 100% !important; produced bug in IE10
 		}
 
 		.rxs-option-list-item {
