@@ -77,10 +77,9 @@ var XzibitSelect = React.createClass({
 			return;
 		}
 
-		var skylight = this.refs.tooltip;
-
-		this.setState({mobileTooltipTitle: title, mobileTooltipContent: content},
-			this.refs.tooltip.show)
+		this.setState(
+			{mobileTooltipTitle: title, mobileTooltipContent: content},
+			this.refs.tooltip.show);
 	},
 	dimensionFilterIncludes: function(opt) {
 		

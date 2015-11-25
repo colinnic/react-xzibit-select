@@ -41,7 +41,7 @@ var OptionListItem = React.createClass({
       return;
     }
 
-    var tooltip = <div dangerouslySetInnerHTML={{__html: this.props.toolTipContent}} />
+    var tooltip = (<div dangerouslySetInnerHTML={{__html: this.props.toolTipContent}} />);
 
     this.props.onMobileTooltip(this.props.title, tooltip);
 
@@ -50,7 +50,6 @@ var OptionListItem = React.createClass({
   },
   render: function() {
     var hoverIcon = null;
-    var skyLight = null;
 
     if(this.props.toolTipContent && this.props.toolTipContent !== "") {
       hoverIcon = (
