@@ -34,7 +34,7 @@
     "lodash": "^3.8.0",
     "opentip": "git://github.com/enyo/opentip",
     "react": "~0.13.3",
-    "react-compact-multiselect": "git+https://github.com/BI/react-compact-multiselect",
+    "react-compact-multiselect": "git+https://github.com/BI/react-compact-multiselect#add-sizebox",
     "react-ismobile-mixin": "git://github.com/BI/react-ismobile-mixin",
     "react-lazy-render": "git+https://github.com/BI/react-lazy-render",
     "react-sizebox": "git+https://github.com/BI/react-sizebox",
